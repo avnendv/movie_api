@@ -1,0 +1,1 @@
+Build app movie using nodejs/express + typescript + typeorm
