@@ -1,6 +1,7 @@
 import path from 'path';
 import { DataSource } from 'typeorm';
 import 'dotenv/config';
+import { User } from '../entity/User';
 
 export const dataSource = new DataSource({
   type: process.env.DB_TYPE as 'mysql',
@@ -9,7 +10,7 @@ export const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [path.join(__dirname, '..', 'entity', '*.ts')],
+  entities: [User],
   migrations: [path.join(__dirname, '..', 'migration', '*.ts')],
   logging: true,
   synchronize: true,

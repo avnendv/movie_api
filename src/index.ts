@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import cors from 'cors';
+import 'reflect-metadata';
 import 'dotenv/config';
 import { dataSource } from './config/DataSource';
 import router from './routes';
