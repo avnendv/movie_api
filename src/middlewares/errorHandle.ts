@@ -7,5 +7,5 @@ export const errorHandle = (err: ErrorResponseIF, _req: Request, res: Response, 
   if (isLogger) {
     logger.error(JSON.stringify(errorData));
   }
-  return res.json(errorData);
+  return res.json({ status: errorData.result, msg: errorData.msg });
 };
