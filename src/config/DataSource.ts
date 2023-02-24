@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import 'dotenv/config';
-import { User } from '../entity/User';
+import { User, Actor, Category, Movie, MovieEpisode, DateView, MovieToDateView } from '../entity';
 import { generateMigration1677169173922 } from '../migration/1677169173922-generate-migration';
 
 export const dataSource = new DataSource({
@@ -10,7 +10,7 @@ export const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User],
+  entities: [User, Actor, Category, Movie, MovieEpisode, DateView, MovieToDateView],
   migrations: [generateMigration1677169173922],
   logging: true,
   synchronize: false,
