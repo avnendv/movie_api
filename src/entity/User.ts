@@ -33,8 +33,8 @@ export class User extends BaseEntity {
   })
   gender!: UserGender;
 
-  @Column({ type: 'int', width: 200, nullable: true })
-  age!: number;
+  @Column({ type: 'date', nullable: true, default: null })
+  birthday!: string;
 
   @Column({ nullable: true })
   avatar!: string;
