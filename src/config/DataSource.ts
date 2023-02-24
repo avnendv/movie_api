@@ -1,7 +1,7 @@
-import path from 'path';
 import { DataSource } from 'typeorm';
 import 'dotenv/config';
 import { User } from '../entity/User';
+import { generateMigration1677169173922 } from '../migration/1677169173922-generate-migration';
 
 export const dataSource = new DataSource({
   type: process.env.DB_TYPE as 'mysql',
@@ -11,7 +11,7 @@ export const dataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   entities: [User],
-  migrations: [path.join(__dirname, '..', 'migration', '*.ts')],
+  migrations: [generateMigration1677169173922],
   logging: true,
-  synchronize: true,
+  synchronize: false,
 });

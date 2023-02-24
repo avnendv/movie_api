@@ -13,8 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "typeorm-ts-node-commonjs",
     "watch": "tsc -w",
-    "migration::generate": "typeorm-ts-node-commonjs migration:generate src/migration/update-post-table -d src/config/DataSource.ts",
-    "migration::run": "typeorm-ts-node-commonjs migration:run -d  dist/config/DataSource.js"
+    "migration::generate": "typeorm-ts-node-commonjs migration:generate -t 1677169173922 src/migration/generate-migration -d src/config/DataSource.ts",
+    "migration::run": "typeorm-ts-node-commonjs migration:run -t 1677169173922 -d dist/config/DataSource.js"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
