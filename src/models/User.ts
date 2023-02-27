@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { MovieEpisode } from './';
+import { MovieEpisode, MovieToUsers } from './';
 
 export enum UserGender {
   MALE = 'male',
@@ -17,13 +17,14 @@ export interface User {
   password: string;
   full_name: string;
   email: string;
-  phone: string;
+  phone?: string;
   gender?: UserGender;
   birthday?: string;
   address?: string;
   status?: UserStatus;
   expired_status?: string;
   movieEpisodes?: MovieEpisode[];
+  movieToUsers?: MovieToUsers[];
 }
 
 export interface LoginPayload {
@@ -43,7 +44,7 @@ export const registerForm = (data: User) => {
     full_name: Joi.string().trim().max(225).required(),
     birthday: Joi.date().allow(null, ''),
     gender: Joi.string().trim().allow(null, ''),
-    phone: Joi.string().trim().allow(null, ''),
+    phone: Joi.string().trim().max(12).allow(null, ''),
     address: Joi.string().trim().allow(null, ''),
   });
 

@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { MovieEpisode } from './MovieEpisode';
+import { MovieEpisode, MovieToUsers } from './';
 
 @Entity()
 export class User extends BaseEntity {
@@ -28,7 +28,7 @@ export class User extends BaseEntity {
   @Column({ unique: true, length: 50 })
   email!: string;
 
-  @Column({ unique: true, length: 12 })
+  @Column({ unique: true, nullable: true, length: 12 })
   phone!: string;
 
   @Column({
@@ -59,6 +59,9 @@ export class User extends BaseEntity {
 
   @OneToMany(() => MovieEpisode, (movieEpisode) => movieEpisode.user)
   movieEpisodes!: MovieEpisode[];
+
+  @OneToMany(() => MovieToUsers, (movieToUser) => movieToUser.movie)
+  movieToUsers!: MovieToUsers[];
 
   @CreateDateColumn()
   created_at!: Date;

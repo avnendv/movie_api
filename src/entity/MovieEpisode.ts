@@ -8,8 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Movie } from './Movie';
-import { User } from './User';
+import { Movie, User } from './';
 
 @Entity()
 export class MovieEpisode extends BaseEntity {

@@ -1,4 +1,4 @@
-import { Actor, Category, MovieEpisode, MovieToDateView } from './';
+import { Actor, Category, MovieEpisode, MovieToDateView, MovieToUsers } from './';
 
 export interface Movie {
   id?: number;
@@ -9,6 +9,8 @@ export interface Movie {
 
   name_en?: string;
 
+  country: string;
+
   descriptions?: string;
 
   movieEpisodes?: MovieEpisode[];
@@ -18,4 +20,6 @@ export interface Movie {
   actors?: Actor[];
 
   movieToDateViews?: MovieToDateView[];
+
+  movieToUsers?: MovieToUsers[];
 }

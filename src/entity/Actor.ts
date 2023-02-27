@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Movie } from './Movie';
+import { Movie } from './';
 
 @Entity()
 export class Actor extends BaseEntity {

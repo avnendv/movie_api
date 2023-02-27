@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { MovieToDateView } from './MovieToDateView';
+import { MovieToDateView } from './';
 
 @Entity()
 export class DateView extends BaseEntity {

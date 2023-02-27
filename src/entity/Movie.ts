@@ -10,10 +10,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Actor } from './Actor';
-import { Category } from './Category';
-import { MovieEpisode } from './MovieEpisode';
-import { MovieToDateView } from './MovieToDateView';
+import { Actor, Category, MovieEpisode, MovieToDateView, MovieToUsers } from './';
 
 @Entity()
 export class Movie extends BaseEntity {
@@ -28,6 +25,9 @@ export class Movie extends BaseEntity {
 
   @Column({ nullable: true })
   name_en!: string;
+
+  @Column()
+  country!: string;
 
   @Column({ type: 'text', nullable: true })
   descriptions!: string;
@@ -45,6 +45,9 @@ export class Movie extends BaseEntity {
 
   @OneToMany(() => MovieToDateView, (movieToDateView) => movieToDateView.movie)
   movieToDateViews!: MovieToDateView[];
+
+  @OneToMany(() => MovieToUsers, (movieToUser) => movieToUser.movie)
+  movieToUsers!: MovieToUsers[];
 
   @CreateDateColumn()
   created_at!: Date;
