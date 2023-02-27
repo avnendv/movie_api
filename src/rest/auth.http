@@ -5,8 +5,8 @@ POST  {{baseUrl}}/register
 content-type: application/json
 
 {
-    "user_name": "eve.in1",
-    "email": "ev.holt@reqres.in",
+    "user_name": "1eve.in1",
+    "email": "1ev.holt@reqres.in",
     "password": "cityslicka",
     "full_name": "abcabc"
 }
@@ -17,10 +17,11 @@ POST  {{baseUrl}}/login
 content-type: application/json
 
 {
-    "email": "eve.holt@reqres.in",
+    "email": "1ev.holt@reqres.in",
     "password": "cityslicka"
 }
 
+###
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc3NDgyMzAxLCJleHAiOjE2Nzc0ODk1MDF9.KNsWaw26ajleiHmeJBsPGDmcJ_HmyimDon0JephmvNY
 ### profile
 POST  {{baseUrl}}/profile

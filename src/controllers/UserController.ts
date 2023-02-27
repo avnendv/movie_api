@@ -10,11 +10,8 @@ export const UserController = {
       if (error) throw { msg: error.details[0].message } as MessagePayLoad;
 
       const data = await UserService.register(req.body);
-      if ((data as MessagePayLoad).msg) {
-        throw data;
-      }
-      const response = await UserService.handleResponse(data as User);
-      res.json(response);
+      const response = await UserService.handleResponse(data);
+      return res.json(response);
     } catch (error) {
       next(errorResponse(error));
     }
@@ -24,11 +21,8 @@ export const UserController = {
       const { error } = loginForm(req.body);
       if (error) throw { msg: error.details[0].message } as MessagePayLoad;
       const data = await UserService.login(req.body);
-      if ((data as MessagePayLoad).msg) {
-        throw data;
-      }
-      const response = await UserService.handleResponse(data as User);
-      res.json(response);
+      const response = await UserService.handleResponse(data);
+      return res.json(response);
     } catch (error) {
       next(errorResponse(error));
     }
@@ -36,11 +30,8 @@ export const UserController = {
   profile: async (req: RequestIF, res: Response, next: NextFunction) => {
     try {
       const data = await UserService.profile(req.userId as number);
-      if ((data as MessagePayLoad).msg) {
-        throw data;
-      }
       const response = await UserService.handleResponse(data as User);
-      res.json(response);
+      return res.json(response);
     } catch (error) {
       next(errorResponse(error));
     }

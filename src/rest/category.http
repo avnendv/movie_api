@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:4000/api/category
+
+### list
+GET  {{baseUrl}}/
+content-type: application/json
+
+
+### show
+GET  {{baseUrl}}/1
+content-type: application/json

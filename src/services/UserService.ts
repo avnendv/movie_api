@@ -31,19 +31,19 @@ export const UserService = {
     };
     return response;
   },
-  register: async (data: UserModel): Promise<UserModel | MessagePayLoad> => {
+  register: async (data: UserModel): Promise<UserModel> => {
     try {
       const salt = genSaltSync(SALT);
       data.password = hashSync(data.password, salt);
       const user: UserModel = await userRepository.save(data);
       return user;
     } catch (error) {
-      return {
+      throw {
         msg: 'An input field already exists!',
       } as MessagePayLoad;
     }
   },
-  login: async (data: LoginPayload): Promise<User | MessagePayLoad> => {
+  login: async (data: LoginPayload): Promise<User> => {
     try {
       const user = await userRepository.findOneByOrFail({
         email: data.email,
@@ -53,19 +53,19 @@ export const UserService = {
       }
       return user;
     } catch (error) {
-      return {
+      throw {
         msg: 'Email or password is incorrect!',
       } as MessagePayLoad;
     }
   },
-  profile: async (id: number): Promise<User | MessagePayLoad> => {
+  profile: async (id: number): Promise<User> => {
     try {
       const user = await userRepository.findOneByOrFail({
         id: id,
       });
       return user;
     } catch (error) {
-      return {
+      throw {
         msg: 'User not found!',
       } as MessagePayLoad;
     }
