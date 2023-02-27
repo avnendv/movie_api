@@ -1,6 +1,7 @@
 import express, { Express } from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import logger from "morgan";
 import cors from 'cors';
 import 'reflect-metadata';
 import 'dotenv/config';
@@ -10,6 +11,8 @@ import router from './routes';
 // create and setup express app
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(logger("dev"));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 app.use(cookieParser());

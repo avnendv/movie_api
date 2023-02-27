@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:4000/api
+
+### register
+POST  {{baseUrl}}/register
+content-type: application/json
+
+{
+    "user_name": "eve.in1",
+    "email": "ev.holt@reqres.in",
+    "password": "cityslicka",
+    "full_name": "abcabc"
+}
+
+
+### login
+POST  {{baseUrl}}/login
+content-type: application/json
+
+{
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc3NDgyMzAxLCJleHAiOjE2Nzc0ODk1MDF9.KNsWaw26ajleiHmeJBsPGDmcJ_HmyimDon0JephmvNY
+### profile
+POST  {{baseUrl}}/profile
+content-type: application/json
+
+{
+    "token": "{{token}}"
+}
+
+
+### profile
+GET  {{baseUrl}}/profile?token={{token}}
+content-type: application/json
+
+
+### profile
+GET  {{baseUrl}}/profile
+x-access-token: {{token}}
+content-type: application/json

@@ -11,20 +11,28 @@ export enum UserStatus {
   VIP = 'vip',
 }
 
-export interface User {
+export interface UserBase {
   id?: number;
   user_name: string;
-  password: string;
   full_name: string;
   email: string;
   phone?: string;
   gender?: UserGender;
   birthday?: string;
+  avatar?: string;
   address?: string;
   status?: UserStatus;
   expired_status?: string;
+}
+
+export interface User extends UserBase {
+  password: string;
   movieEpisodes?: MovieEpisode[];
   movieToUsers?: MovieToUsers[];
+}
+
+export interface UserAuth extends UserBase {
+  token: string;
 }
 
 export interface LoginPayload {
