@@ -9,7 +9,7 @@ export interface Category {
   movies?: Movie[];
 }
 
-export const upSertForm = (data: Category) => {
+export const upSertFormCategory = (data: Category) => {
   const rule = Joi.object({
     name: Joi.string().trim().min(3).max(50).required(),
     parent_id: Joi.number().integer().allow(null, ''),

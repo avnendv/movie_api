@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:4000/api/category
+@baseUrl = http://localhost:4000/api/actor
 
 ### list
 GET  {{baseUrl}}/
@@ -24,7 +24,6 @@ content-type: application/json
 
 {
     "name": "111z",
-    "parent_id": "2"
 }
 
 ### destroy

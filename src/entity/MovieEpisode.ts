@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Movie, User } from './';
+import { Movie } from './';
 
 @Entity()
 export class MovieEpisode extends BaseEntity {
@@ -22,13 +22,10 @@ export class MovieEpisode extends BaseEntity {
   videos!: string;
 
   @Column({ type: 'boolean', default: false })
-  requireVip!: string;
+  requireVip!: boolean;
 
   @ManyToOne(() => Movie, (movie) => movie.movieEpisodes)
   movie!: Movie;
-
-  @ManyToOne(() => User, (user) => user.movieEpisodes)
-  user!: User;
 
   @CreateDateColumn()
   created_at!: Date;

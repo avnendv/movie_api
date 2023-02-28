@@ -1,4 +1,5 @@
-import { Movie, User } from './';
+import Joi from 'joi';
+import { Movie } from './';
 
 export interface MovieEpisode {
   id?: number;
@@ -7,9 +8,18 @@ export interface MovieEpisode {
 
   videos: string;
 
-  requireVip: string;
+  requireVip?: boolean;
 
   movie?: Movie;
-
-  user?: User;
 }
+
+export const upSertFormMovieEpisode = (data: MovieEpisode) => {
+  const rule = Joi.object({
+    name: Joi.string().trim().min(3).max(20).required(),
+    videos: Joi.string().trim().required(),
+    requireVip: Joi.boolean(),
+    movie: Joi.number().integer().required(),
+  });
+
+  return rule.validate(data);
+};

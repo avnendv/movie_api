@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { MovieEpisode, MovieToUsers } from './';
+import { MovieToUsers } from './';
 
 @Entity()
 export class User extends BaseEntity {
@@ -57,8 +57,8 @@ export class User extends BaseEntity {
   @Column({ type: 'date', nullable: true, default: null })
   expired_status!: string;
 
-  @OneToMany(() => MovieEpisode, (movieEpisode) => movieEpisode.user)
-  movieEpisodes!: MovieEpisode[];
+  @Column({ type: 'text', nullable: true, default: null })
+  listLastMovieSeen!: string;
 
   @OneToMany(() => MovieToUsers, (movieToUser) => movieToUser.movie)
   movieToUsers!: MovieToUsers[];

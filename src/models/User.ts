@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { MovieEpisode, MovieToUsers } from './';
+import { MovieToUsers } from './';
 
 export enum UserGender {
   MALE = 'male',
@@ -27,7 +27,6 @@ export interface UserBase {
 
 export interface User extends UserBase {
   password: string;
-  movieEpisodes?: MovieEpisode[];
   movieToUsers?: MovieToUsers[];
 }
 

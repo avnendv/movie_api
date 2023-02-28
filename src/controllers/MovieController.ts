@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
-import { MessagePayLoad, upSertFormCategory } from '../models';
-import { CategoryService } from '../services';
+import { MessagePayLoad, upSertFormMovie } from '../models';
+import { MovieService } from '../services';
 import { errorResponse } from '../utils';
 
-export const CategoryController = {
+export const MovieController = {
   list: async (_req: Request, res: Response, next: NextFunction) => {
     try {
-      const response = await CategoryService.list();
+      const response = await MovieService.list();
       return res.json(response);
     } catch (error) {
       next(errorResponse(error));
@@ -15,7 +15,7 @@ export const CategoryController = {
   show: async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (req.params.id) {
-        const response = await CategoryService.show(Number(req.params.id));
+        const response = await MovieService.show(Number(req.params.id));
         return res.json(response);
       }
       throw { msg: 'Parameter id is required!' };
@@ -25,10 +25,10 @@ export const CategoryController = {
   },
   store: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { error } = upSertFormCategory(req.body);
+      const { error } = upSertFormMovie(req.body);
       if (error) throw { msg: error.details[0].message } as MessagePayLoad;
 
-      const response = await CategoryService.store(req.body);
+      const response = await MovieService.store(req.body);
       return res.json(response);
     } catch (error) {
       next(errorResponse(error));
@@ -37,10 +37,10 @@ export const CategoryController = {
   update: async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (req.params.id) {
-        const { error } = upSertFormCategory(req.body);
+        const { error } = upSertFormMovie(req.body);
         if (error) throw { msg: error.details[0].message } as MessagePayLoad;
 
-        const response = await CategoryService.update(+req.params.id, req.body);
+        const response = await MovieService.update(+req.params.id, req.body);
         return res.json(response);
       }
       throw { msg: 'Parameter id is required!' };
@@ -51,7 +51,7 @@ export const CategoryController = {
   destroy: async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (req.params.id) {
-        const response = await CategoryService.destroy(+req.params.id);
+        const response = await MovieService.destroy(+req.params.id);
         return res.json(response);
       }
       throw { msg: 'Parameter id is required!' };
@@ -62,7 +62,7 @@ export const CategoryController = {
   restore: async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (req.params.id) {
-        const response = await CategoryService.restore(+req.params.id);
+        const response = await MovieService.restore(+req.params.id);
         return res.json(response);
       }
       throw { msg: 'Parameter id is required!' };

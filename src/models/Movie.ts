@@ -1,3 +1,4 @@
+import Joi from 'joi';
 import { Actor, Category, MovieEpisode, MovieToDateView, MovieToUsers } from './';
 
 export interface Movie {
@@ -23,3 +24,17 @@ export interface Movie {
 
   movieToUsers?: MovieToUsers[];
 }
+
+
+export const upSertFormMovie = (data: Movie) => {
+  const rule = Joi.object({
+    name: Joi.string().trim().min(3).required(),
+    name_en: Joi.string().trim().allow(null, ''),
+    country: Joi.string().trim().required(),
+    descriptions: Joi.string().trim().allow(null, ''),
+    actors: Joi.array().items(Joi.object({id: Joi.number().integer().required()})).required(),
+    categories: Joi.array().items(Joi.object({id: Joi.number().integer().required()})).required(),
+  });
+
+  return rule.validate(data);
+};
