@@ -8,3 +8,31 @@ content-type: application/json
 ### show
 GET  {{baseUrl}}/1
 content-type: application/json
+
+
+### store
+POST  {{baseUrl}}/store
+content-type: application/json
+
+{
+    "name": "111z",
+    "parent_id": "2"
+}
+
+### update
+PUT  {{baseUrl}}/1/update
+content-type: application/json
+
+{
+    "name": "111z",
+    "parent_id": "2"
+}
+
+### destroy
+DELETE   {{baseUrl}}/1/destroy
+content-type: application/json
+
+### destroy
+GET   {{baseUrl}}/1/restore
+content-type: application/json
+

@@ -15,10 +15,10 @@ export class Category extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ length: 50 })
+  @Column({ unique: true, length: 50 })
   name!: string;
 
-  @Column()
+  @Column({ unique: true })
   slug!: string;
 
   @Column({ type: 'int', default: 0 })

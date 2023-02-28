@@ -73,7 +73,11 @@ export const CategoryService = {
         {
           id,
         },
-        data
+        {
+          name: data.name,
+          slug: slugify(data.name),
+          parent_id: data.parent_id || 0,
+        }
       );
       return category;
     } catch (error) {
