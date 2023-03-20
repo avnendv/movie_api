@@ -1,8 +1,8 @@
 import { ErrorResponseIF } from '@/models';
 import logger from '@/logs/winston';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
-export const errorHandle = (err: ErrorResponseIF, _req: Request, res: Response, _next: NextFunction) => {
+export const errorHandle = (err: ErrorResponseIF, _req: Request, res: Response) => {
   const { isLogger, ...errorData } = err;
   if (isLogger) {
     logger.error(JSON.stringify(errorData));

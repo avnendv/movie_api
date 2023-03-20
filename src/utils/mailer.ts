@@ -10,7 +10,7 @@ export const sendMail = (to: string, subject: string, html: string) => {
     subject: subject,
     html: html,
   };
-  transporter.sendMail(mainOptions, function (err, _) {
+  transporter.sendMail(mainOptions, function (err) {
     if (err) {
       logger.error(err);
     }

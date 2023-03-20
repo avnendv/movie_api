@@ -2,7 +2,7 @@ import { generate } from 'shortid';
 import { errorResponseData } from '@/models';
 
 export const errorResponse = (error: unknown) => {
-  return { ...errorResponseData, ...(error as Object) };
+  return { ...errorResponseData, ...(error as Record<string, string>) };
 };
 
 export const slugify = (str: string) =>

@@ -18,6 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src --fix --max-warnings=0",
+    "prepare": "husky install",
     "tsc-init": "tsconfig.json",
     "build": "rm -rf dist build && tsc && uglifyjs-folder ./dist -x .js -eo ./build && rm -rf dist && node ./build/index.js",
     "server": "nodemon --inspect dist/index.js",
@@ -38,6 +40,9 @@
     "@types/node": "^18.14.0",
     "@types/nodemailer": "^6.4.7",
     "@types/shortid": "^0.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
     "nodemon": "^2.0.20",
     "typescript": "^4.9.5",
     "uglify-js": "^3.17.4",
@@ -50,6 +55,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "husky": "^8.0.3",
     "joi": "^17.8.3",
     "jsonwebtoken": "^9.0.0",
     "module-alias": "^2.2.2",
@@ -62,5 +68,10 @@
     "typeorm": "^0.3.12",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   }
 }
