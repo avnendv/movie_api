@@ -1,9 +1,9 @@
-import { SuccessResponseIF, Movie as MovieModel, MessagePayLoad } from '../models';
+import { SuccessResponseIF, Movie as MovieModel, MessagePayLoad } from '@/models';
 import { FindManyOptions, In } from 'typeorm';
-import { slugify } from '../utils';
-import { RESULT_OK } from '../config/constants';
-import { dataSource } from '../config/DataSource';
-import { Actor, Category, Movie } from '../entity';
+import { slugify } from '@/utils';
+import { RESULT_OK } from '@/config/constants';
+import { dataSource } from '@/config/DataSource';
+import { Actor, Category, Movie } from '@/entity';
 
 const actorRepository = dataSource.getRepository(Actor);
 const categoryRepository = dataSource.getRepository(Category);

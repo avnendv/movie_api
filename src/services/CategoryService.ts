@@ -1,9 +1,9 @@
-import { SuccessResponseIF, Category as CategoryModel, MessagePayLoad } from '../models';
+import { SuccessResponseIF, Category as CategoryModel, MessagePayLoad } from '@/models';
 import { FindManyOptions } from 'typeorm';
-import { slugify } from '../utils';
-import { RESULT_OK } from '../config/constants';
-import { dataSource } from '../config/DataSource';
-import { Category } from '../entity';
+import { slugify } from '@/utils';
+import { RESULT_OK } from '@/config/constants';
+import { dataSource } from '@/config/DataSource';
+import { Category } from '@/entity';
 
 const categoryRepository = dataSource.getRepository(Category);
 

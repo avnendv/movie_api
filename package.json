@@ -5,6 +5,17 @@
   "main": "index.js",
   "author": "a2xvodoi",
   "license": "MIT",
+  "_moduleAliases": {
+    "@/config": "./dist/config",
+    "@/entity": "./dist/entity",
+    "@/middlewares": "./dist/middlewares",
+    "@/models": "./dist/models",
+    "@/controllers": "./dist/controllers",
+    "@/services": "./dist/services",
+    "@/migration": "./dist/migration",
+    "@/utils": "./dist/utils",
+    "@/logs": "./dist/logs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc-init": "tsconfig.json",
@@ -40,6 +51,7 @@
     "express-session": "^1.17.3",
     "joi": "^17.8.3",
     "jsonwebtoken": "^9.0.0",
+    "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",

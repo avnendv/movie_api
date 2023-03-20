@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { MessagePayLoad, upSertFormMovie } from '../models';
-import { MovieService } from '../services';
-import { errorResponse } from '../utils';
+import { MessagePayLoad, upSertFormMovie } from '@/models';
+import { MovieService } from '@/services';
+import { errorResponse } from '@/utils';
 
 export const MovieController = {
   list: async (_req: Request, res: Response, next: NextFunction) => {

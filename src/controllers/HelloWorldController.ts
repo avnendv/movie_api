@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { errorResponse } from '../utils';
+import { errorResponse } from '@/utils';
 
 export const HelloWorld = async (_req: Request, res: Response, next: NextFunction) => {
   try {

@@ -1,9 +1,9 @@
-import { SuccessResponseIF, Actor as ActorModel, MessagePayLoad } from '../models';
+import { SuccessResponseIF, Actor as ActorModel, MessagePayLoad } from '@/models';
 import { FindManyOptions } from 'typeorm';
-import { slugify } from '../utils';
-import { RESULT_OK } from '../config/constants';
-import { dataSource } from '../config/DataSource';
-import { Actor } from '../entity';
+import { slugify } from '@/utils';
+import { RESULT_OK } from '@/config/constants';
+import { dataSource } from '@/config/DataSource';
+import { Actor } from '@/entity';
 
 const actorRepository = dataSource.getRepository(Actor);
 

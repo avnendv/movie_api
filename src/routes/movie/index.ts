@@ -1,4 +1,4 @@
-import { MovieController } from '../../controllers';
+import { MovieController } from '@/controllers';
 import express from 'express';
 
 const router = express.Router();

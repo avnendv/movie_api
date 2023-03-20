@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { compareSync, genSaltSync, hashSync } from 'bcryptjs';
-import { RESULT_OK, SALT } from '../config/constants';
-import { dataSource } from '../config/DataSource';
-import { User } from '../entity';
-import { LoginPayload, MessagePayLoad, SuccessResponseIF, User as UserModel, UserAuth } from '../models';
+import { RESULT_OK, SALT } from '@/config/constants';
+import { dataSource } from '@/config/DataSource';
+import { User } from '@/entity';
+import { LoginPayload, MessagePayLoad, SuccessResponseIF, User as UserModel, UserAuth } from '@/models';
 
 const userRepository = dataSource.getRepository(User);
 

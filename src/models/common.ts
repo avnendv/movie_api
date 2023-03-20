@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
-import { RESULT_FAIL } from '../config/constants';
+import { RESULT_FAIL } from '@/config/constants';
 
 export interface RequestIF extends Request {
   userId?: number;

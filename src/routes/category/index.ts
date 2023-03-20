@@ -1,4 +1,4 @@
-import { CategoryController } from '../../controllers';
+import { CategoryController } from '@/controllers';
 import express from 'express';
 
 const router = express.Router();

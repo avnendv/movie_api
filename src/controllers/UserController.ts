@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { errorResponse } from '../utils';
-import { loginForm, MessagePayLoad, registerForm, RequestIF, User } from '../models';
-import { UserService } from '../services';
+import { errorResponse } from '@/utils';
+import { loginForm, MessagePayLoad, registerForm, RequestIF, User } from '@/models';
+import { UserService } from '@/services';
 
 export const UserController = {
   register: async (req: Request, res: Response, next: NextFunction) => {

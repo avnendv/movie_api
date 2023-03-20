@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import logger from "morgan";
 import cors from 'cors';
+import 'module-alias/register';
 import 'reflect-metadata';
 import 'dotenv/config';
 import { dataSource } from './config/DataSource';

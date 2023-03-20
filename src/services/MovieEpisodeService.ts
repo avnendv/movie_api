@@ -1,8 +1,8 @@
-import { SuccessResponseIF, MovieEpisode as MovieEpisodeModel, MessagePayLoad } from '../models';
+import { SuccessResponseIF, MovieEpisode as MovieEpisodeModel, MessagePayLoad } from '@/models';
 import { FindManyOptions, FindOperator } from 'typeorm';
-import { RESULT_OK } from '../config/constants';
-import { dataSource } from '../config/DataSource';
-import { Movie, MovieEpisode } from '../entity';
+import { RESULT_OK } from '@/config/constants';
+import { dataSource } from '@/config/DataSource';
+import { Movie, MovieEpisode } from '@/entity';
 
 const movieRepository = dataSource.getRepository(Movie);
 const movieEpisodeRepository = dataSource.getRepository(MovieEpisode);

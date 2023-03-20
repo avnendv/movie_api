@@ -1,7 +1,7 @@
 import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { errorResponse } from '../utils';
-import { JwtPayloadIF, MessagePayLoad, RequestIF } from '../models';
+import { errorResponse } from '@/utils';
+import { JwtPayloadIF, MessagePayLoad, RequestIF } from '@/models';
 
 export const verifyToken = (req: RequestIF, _res: Response, next: NextFunction) => {
   const token = req.body.token || req.query.token || req.headers['x-access-token'];

@@ -1,4 +1,4 @@
-import { UserGender, UserStatus } from '../models';
+import { UserGender, UserStatus } from '@/models';
 import {
   BaseEntity,
   Column,

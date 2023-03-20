@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { MessagePayLoad, upSertFormCategory } from '../models';
-import { CategoryService } from '../services';
-import { errorResponse } from '../utils';
+import { MessagePayLoad, upSertFormCategory } from '@/models';
+import { CategoryService } from '@/services';
+import { errorResponse } from '@/utils';
 
 export const CategoryController = {
   list: async (_req: Request, res: Response, next: NextFunction) => {
