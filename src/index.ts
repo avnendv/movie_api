@@ -1,11 +1,12 @@
 import express, { Express } from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
-import logger from "morgan";
+import logger from 'morgan';
 import cors from 'cors';
 import 'module-alias/register';
 import 'reflect-metadata';
 import 'dotenv/config';
+import helmet from 'helmet';
 import { dataSource } from './config/DataSource';
 import router from './routes';
 
@@ -13,7 +14,7 @@ import router from './routes';
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(logger("dev"));
+app.use(logger('dev'));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 app.use(cookieParser());
@@ -26,6 +27,7 @@ app.use(
   })
 );
 app.use(cors());
+app.use(helmet());
 
 // establish database connection
 dataSource
