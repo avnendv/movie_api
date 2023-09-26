@@ -1,4 +1,3 @@
-import { UserGender, UserStatus } from '@/models';
 import {
   BaseEntity,
   Column,
@@ -10,6 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { MovieToUsers } from './';
+import { UserGender, UserStatus } from '../config/constants';
 
 @Entity()
 export class User extends BaseEntity {
