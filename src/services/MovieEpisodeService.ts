@@ -1,4 +1,4 @@
-import { SuccessResponseIF, MovieEpisode as MovieEpisodeModel, MessagePayLoad } from '@/models';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions, FindOperator } from 'typeorm';
 import { RESULT_OK } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';
@@ -16,7 +16,7 @@ export const MovieEpisodeService = {
         },
         ...query,
       });
-      const response: SuccessResponseIF<MovieEpisodeModel> = {
+      const response: SuccessResponseIF<Models.MovieEpisode> = {
         result: RESULT_OK,
         data: categories,
       };
@@ -30,7 +30,7 @@ export const MovieEpisodeService = {
       const movieEpisode = await movieEpisodeRepository.findOneByOrFail({
         id,
       });
-      const response: SuccessResponseIF<MovieEpisodeModel> = {
+      const response: SuccessResponseIF<Models.MovieEpisode> = {
         result: RESULT_OK,
         data: movieEpisode,
       };
@@ -41,7 +41,7 @@ export const MovieEpisodeService = {
       } as MessagePayLoad;
     }
   },
-  store: async (data: MovieEpisodeModel) => {
+  store: async (data: Models.MovieEpisode) => {
     try {
       await movieRepository.findOneByOrFail({
         id: data.movie as number | FindOperator<number> | undefined,
@@ -52,14 +52,14 @@ export const MovieEpisodeService = {
       return {
         result: RESULT_OK,
         data: movieEpisode,
-      } as SuccessResponseIF<MovieEpisodeModel>;
+      } as SuccessResponseIF<Models.MovieEpisode>;
     } catch (error) {
       throw {
         msg: 'An input field already exists or movie not exists!',
       } as MessagePayLoad;
     }
   },
-  update: async (id: number, data: MovieEpisodeModel) => {
+  update: async (id: number, data: Models.MovieEpisode) => {
     try {
       await movieRepository.findOneByOrFail({
         id: data.movie as number | FindOperator<number> | undefined,

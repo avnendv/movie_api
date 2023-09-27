@@ -1,4 +1,4 @@
-import { SuccessResponseIF, Movie as MovieModel, MessagePayLoad } from '@/models';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions, In } from 'typeorm';
 import { slugify } from '@/utils';
 import { RESULT_OK } from '@/config/constants';
@@ -19,7 +19,7 @@ export const MovieService = {
         },
         ...query,
       });
-      const response: SuccessResponseIF<MovieModel> = {
+      const response: SuccessResponseIF<Models.Movie> = {
         result: RESULT_OK,
         data: movies,
       };
@@ -33,7 +33,7 @@ export const MovieService = {
       const movie = await movieRepository.findOneByOrFail({
         id,
       });
-      const response: SuccessResponseIF<MovieModel> = {
+      const response: SuccessResponseIF<Models.Movie> = {
         result: RESULT_OK,
         data: movie,
       };
@@ -44,7 +44,7 @@ export const MovieService = {
       } as MessagePayLoad;
     }
   },
-  store: async (data: MovieModel) => {
+  store: async (data: Models.Movie) => {
     try {
       const actors = await actorRepository.find({
         where: {
@@ -69,17 +69,16 @@ export const MovieService = {
       return {
         result: RESULT_OK,
         data: movie,
-      } as SuccessResponseIF<MovieModel>;
+      } as SuccessResponseIF<Models.Movie>;
     } catch (error) {
       throw {
         msg: 'Has some error!',
       } as MessagePayLoad;
     }
   },
-  update: async (id: number, data: MovieModel) => {
+  update: async (id: number, data: Models.Movie) => {
     try {
       const actors = await actorRepository.find({
-        
         where: {
           id: In(data.actors?.map((item) => item.id) as []),
         },

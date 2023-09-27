@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { errorResponse } from '@/utils';
-import { loginForm, MessagePayLoad, registerForm, RequestIF, User } from '@/models';
+import { loginForm, MessagePayLoad, registerForm, RequestIF } from '@/models';
 import { UserService } from '@/services';
 
 export const UserController = {
@@ -30,7 +30,7 @@ export const UserController = {
   profile: async (req: RequestIF, res: Response, next: NextFunction) => {
     try {
       const data = await UserService.profile(req.userId as number);
-      const response = await UserService.handleResponse(data as User);
+      const response = await UserService.handleResponse(data as Models.User);
       return res.json(response);
     } catch (error) {
       next(errorResponse(error));

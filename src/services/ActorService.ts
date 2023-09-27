@@ -1,4 +1,4 @@
-import { SuccessResponseIF, Actor as ActorModel, MessagePayLoad } from '@/models';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions } from 'typeorm';
 import { slugify } from '@/utils';
 import { RESULT_OK } from '@/config/constants';
@@ -16,7 +16,7 @@ export const ActorService = {
         },
         ...query,
       });
-      const response: SuccessResponseIF<ActorModel> = {
+      const response: SuccessResponseIF<Models.Actor> = {
         result: RESULT_OK,
         data: categories,
       };
@@ -30,7 +30,7 @@ export const ActorService = {
       const actor = await actorRepository.findOneByOrFail({
         id,
       });
-      const response: SuccessResponseIF<ActorModel> = {
+      const response: SuccessResponseIF<Models.Actor> = {
         result: RESULT_OK,
         data: actor,
       };
@@ -41,7 +41,7 @@ export const ActorService = {
       } as MessagePayLoad;
     }
   },
-  store: async (data: ActorModel) => {
+  store: async (data: Models.Actor) => {
     try {
       const actor = await actorRepository.save({
         name: data.name,
@@ -50,14 +50,14 @@ export const ActorService = {
       return {
         result: RESULT_OK,
         data: actor,
-      } as SuccessResponseIF<ActorModel>;
+      } as SuccessResponseIF<Models.Actor>;
     } catch (error) {
       throw {
         msg: 'An input field already exists!',
       } as MessagePayLoad;
     }
   },
-  update: async (id: number, data: ActorModel) => {
+  update: async (id: number, data: Models.Actor) => {
     try {
       const actor = await actorRepository.update(
         {

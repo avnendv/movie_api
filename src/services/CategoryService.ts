@@ -1,4 +1,4 @@
-import { SuccessResponseIF, Category as CategoryModel, MessagePayLoad } from '@/models';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions } from 'typeorm';
 import { slugify } from '@/utils';
 import { RESULT_OK } from '@/config/constants';
@@ -17,7 +17,7 @@ export const CategoryService = {
         },
         ...query,
       });
-      const response: SuccessResponseIF<CategoryModel> = {
+      const response: SuccessResponseIF<Models.Category> = {
         result: RESULT_OK,
         data: categories,
       };
@@ -31,7 +31,7 @@ export const CategoryService = {
       const category = await categoryRepository.findOneByOrFail({
         id,
       });
-      const response: SuccessResponseIF<CategoryModel> = {
+      const response: SuccessResponseIF<Models.Category> = {
         result: RESULT_OK,
         data: category,
       };
@@ -42,7 +42,7 @@ export const CategoryService = {
       } as MessagePayLoad;
     }
   },
-  store: async (data: CategoryModel) => {
+  store: async (data: Models.Category) => {
     try {
       if (data.parent_id) {
         await categoryRepository.findOneByOrFail({
@@ -57,14 +57,14 @@ export const CategoryService = {
       return {
         result: RESULT_OK,
         data: category,
-      } as SuccessResponseIF<CategoryModel>;
+      } as SuccessResponseIF<Models.Category>;
     } catch (error) {
       throw {
         msg: 'An input field already exists!',
       } as MessagePayLoad;
     }
   },
-  update: async (id: number, data: CategoryModel) => {
+  update: async (id: number, data: Models.Category) => {
     try {
       if (id === data.parent_id) {
         throw 'error';

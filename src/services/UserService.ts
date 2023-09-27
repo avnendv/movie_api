@@ -3,16 +3,16 @@ import { compareSync, genSaltSync, hashSync } from 'bcryptjs';
 import { RESULT_OK, SALT } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';
 import { User } from '@/entity';
-import { LoginPayload, MessagePayLoad, SuccessResponseIF, User as UserModel, UserAuth } from '@/models';
+import { MessagePayLoad, SuccessResponseIF } from '@/models';
 
 const userRepository = dataSource.getRepository(User);
 
 export const UserService = {
-  handleResponse: (data: UserModel): SuccessResponseIF<UserAuth> => {
+  handleResponse: (data: Models.User): SuccessResponseIF<Models.UserAuth> => {
     const token = jwt.sign({ id: data.id }, process.env.TOKEN_SECRET as string, {
       expiresIn: process.env.TOKEN_LIFE,
     });
-    const user: UserAuth = {
+    const user: Models.UserAuth = {
       user_name: data.user_name,
       email: data.email,
       full_name: data.full_name,
@@ -25,17 +25,17 @@ export const UserService = {
       status: data.status,
       token: token,
     };
-    const response: SuccessResponseIF<UserAuth> = {
+    const response: SuccessResponseIF<Models.UserAuth> = {
       result: RESULT_OK,
       data: user,
     };
     return response;
   },
-  register: async (data: UserModel): Promise<UserModel> => {
+  register: async (data: Models.User): Promise<Models.User> => {
     try {
       const salt = genSaltSync(SALT);
       data.password = hashSync(data.password, salt);
-      const user: UserModel = await userRepository.save(data);
+      const user: Models.User = await userRepository.save(data);
       return user;
     } catch (error) {
       throw {
@@ -43,7 +43,7 @@ export const UserService = {
       } as MessagePayLoad;
     }
   },
-  login: async (data: LoginPayload): Promise<User> => {
+  login: async (data: Models.LoginPayload): Promise<User> => {
     try {
       const user = await userRepository.findOneByOrFail({
         email: data.email,
