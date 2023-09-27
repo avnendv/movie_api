@@ -1,5 +1,5 @@
-import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions, FindOperator } from 'typeorm';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { RESULT_OK } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';
 import { Movie, MovieEpisode } from '@/entity';

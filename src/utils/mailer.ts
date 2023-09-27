@@ -6,9 +6,9 @@ export const sendMail = (to: string, subject: string, html: string) => {
   const transporter = nodemailer.createTransport(transportConfig);
 
   const mainOptions = {
-    to: to,
-    subject: subject,
-    html: html,
+    to,
+    subject,
+    html,
   };
   transporter.sendMail(mainOptions, function (err) {
     if (err) {

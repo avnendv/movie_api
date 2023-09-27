@@ -16,7 +16,7 @@ export interface BaseResponseIF {
   result: number;
 }
 
-export type ErrorResponseIF = BaseResponseIF
+export type ErrorResponseIF = BaseResponseIF;
 
 export const errorResponseData: ErrorResponseIF = {
   result: RESULT_FAIL,

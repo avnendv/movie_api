@@ -1,10 +1,10 @@
 import { Express } from 'express';
-import { HelloWorld, UserController } from '@/controllers';
 
 import actorRouter from './actor';
 import categoryRouter from './category';
 import movieRouter from './movie';
 import movieEpisodeRouter from './movieEpisode';
+import { HelloWorld, UserController } from '@/controllers';
 
 import { errorHandle } from '@/middlewares';
 import { verifyToken } from '@/middlewares/auth';

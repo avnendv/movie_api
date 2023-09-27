@@ -1,0 +1,133 @@
+{
+  "/auth/register": {
+    "post": {
+      "tags": ["User"],
+      "summary": "Register a user",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Register"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "409": {
+          "description": "Conflict"
+        }
+      }
+    }
+  },
+  "/auth/login": {
+    "post": {
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "tags": ["User"],
+      "summary": "Register a Course",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Login"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "409": {
+          "description": "Conflict"
+        }
+      }
+    }
+  },
+  "/auth/me": {
+    "get": {
+      "tags": ["User"],
+      "summary": "Get a user with check info",
+      "description": "Response information user",
+      "responses": {
+        "200": {
+          "description": "User existing"
+        }
+      }
+    }
+  },
+  "/auth/profile/{username}/course-registered": {
+    "get": {
+      "tags": ["User"],
+      "summary": "Get list course of user registered",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "username",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success"
+        },
+        "400": {
+          "description": "Bad request"
+        }
+      }
+    }
+  },
+  "/auth/profile/{username}": {
+    "get": {
+      "tags": ["User"],
+      "summary": "Get a user with username",
+      "description": "Response information user",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "username",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "User existing"
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,9 @@
-import { ErrorResponseIF } from '@/models';
+import { NextFunction, Request, Response } from 'express';
 import logger from '@/logs/winston';
-import { Request, Response } from 'express';
+import { ErrorResponseIF } from '@/models';
 
-export const errorHandle = (err: ErrorResponseIF, _req: Request, res: Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const errorHandle = (err: ErrorResponseIF, _req: Request, res: Response, _next: NextFunction) => {
   const { isLogger, ...errorData } = err;
   if (isLogger) {
     logger.error(JSON.stringify(errorData));

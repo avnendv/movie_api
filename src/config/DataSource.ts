@@ -1,15 +1,16 @@
 import { DataSource } from 'typeorm';
-import 'dotenv/config';
+import 'reflect-metadata';
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_TYPE, DB_USERNAME } from './env';
 import { User, Actor, Category, Movie, MovieEpisode, DateView, MovieToDateView, MovieToUsers } from '../entity';
 import { GenerateMigration1677169173922 } from '../migration/1677169173922-generate-migration';
 
 export const dataSource = new DataSource({
-  type: process.env.DB_TYPE as 'mysql',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  type: DB_TYPE as 'mysql',
+  host: DB_HOST,
+  port: Number(DB_PORT),
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DB_NAME,
   entities: [User, Actor, Category, Movie, MovieEpisode, DateView, MovieToDateView, MovieToUsers],
   migrations: [GenerateMigration1677169173922],
   logging: true,

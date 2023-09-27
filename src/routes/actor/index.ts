@@ -1,5 +1,5 @@
-import { ActorController } from '@/controllers';
 import express from 'express';
+import { ActorController } from '@/controllers';
 
 const router = express.Router();
 
