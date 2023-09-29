@@ -1,6 +1,6 @@
 import user from './user.json';
 
-const paths = Object.assign(user);
+const paths = { ...user };
 
 export default {
   paths,

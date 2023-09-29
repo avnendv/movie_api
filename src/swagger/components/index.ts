@@ -1,12 +1,13 @@
 import user from './user.json';
 
-const schemas = Object.assign(user, {
+const schemas = {
+  ...user,
   id: {
     type: 'string',
     description: 'An id of a todo',
     example: 'tyVgf',
   },
-});
+};
 
 export default {
   components: {
