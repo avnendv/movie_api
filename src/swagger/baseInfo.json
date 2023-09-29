@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Movie AVNENDV",
+    "description": "A Movie AVNENDV API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "AVNENDV",
+      "email": "viet.nd.avnendv@gmail.com",
+      "url": "https://github.com/avnendv"
+    }
+  },
+  "externalDocs": {
+    "url": "https://swagger.io/docs",
+    "description": "Find more info here"
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"]
+}

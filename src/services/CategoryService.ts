@@ -1,5 +1,5 @@
-import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions } from 'typeorm';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { slugify } from '@/utils';
 import { RESULT_OK } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';

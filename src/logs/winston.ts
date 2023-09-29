@@ -3,26 +3,26 @@ import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 
 const logger = winston.createLogger({
-  // format của log được kết hợp thông qua format.combine
+  // log formats are combined via format.combine
   format: winston.format.combine(
     winston.format.splat(),
-    // Định dạng time cho log
+    // Time format for log
     winston.format.timestamp({
       format: 'YYYY-MM-DD HH:mm:ss',
     }),
-    // thêm màu sắc
+    // add color
     winston.format.colorize(),
-    // thiết lập định dạng của log
+    // set the format of the log
     winston.format.printf((log) => {
-      // nếu log là error hiển thị stack trace còn không hiển thị message của log
+      // if the log is an error, display the stack trace but do not display the log message
       if (log.stack) return `[${log.timestamp}] [${log.level}] ${log.stack}`;
       return `[${log.timestamp}] [${log.level}] ${log.message}`;
     })
   ),
   transports: [
-    // hiển thị log thông qua console
+    // display log through console
     new winston.transports.Console(),
-    // Thiết lập ghi các errors vào file
+    // Set up writing errors to file
     new winston.transports.File({
       level: 'error',
       filename: path.join(__dirname, '..', 'logs', 'logs.log'),

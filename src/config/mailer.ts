@@ -1,12 +1,13 @@
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import { MAIL_PASS, MAIL_PORT, MAIL_SMTP, MAIL_USER } from './env';
 
 export const transportConfig: SMTPTransport.Options = {
-  host: process.env.MAIL_SMTP,
-  port: (process.env.MAIL_PORT || 465) as number,
+  host: MAIL_SMTP,
+  port: (MAIL_PORT || 465) as number,
   secure: true,
   auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
+    user: MAIL_USER,
+    pass: MAIL_PASS,
   },
   tls: {
     rejectUnauthorized: false,

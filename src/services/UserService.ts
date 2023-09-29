@@ -4,13 +4,14 @@ import { RESULT_OK, SALT } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';
 import { User } from '@/entity';
 import { MessagePayLoad, SuccessResponseIF } from '@/models';
+import { TOKEN_LIFE, TOKEN_SECRET } from '@/config/env';
 
 const userRepository = dataSource.getRepository(User);
 
 export const UserService = {
   handleResponse: (data: Models.User): SuccessResponseIF<Models.UserAuth> => {
-    const token = jwt.sign({ id: data.id }, process.env.TOKEN_SECRET as string, {
-      expiresIn: process.env.TOKEN_LIFE,
+    const token = jwt.sign({ id: data.id }, TOKEN_SECRET, {
+      expiresIn: TOKEN_LIFE,
     });
     const user: Models.UserAuth = {
       user_name: data.user_name,
@@ -23,7 +24,7 @@ export const UserService = {
       address: data.address,
       expired_status: data.expired_status,
       status: data.status,
-      token: token,
+      token,
     };
     const response: SuccessResponseIF<Models.UserAuth> = {
       result: RESULT_OK,
@@ -61,7 +62,7 @@ export const UserService = {
   profile: async (id: number): Promise<User> => {
     try {
       const user = await userRepository.findOneByOrFail({
-        id: id,
+        id,
       });
       return user;
     } catch (error) {

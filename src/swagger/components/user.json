@@ -1,0 +1,54 @@
+{
+  "Register": {
+    "type": "object",
+    "required": ["email", "username", "password"],
+    "properties": {
+      "email": {
+        "type": "string",
+        "default": "dev2000@example.com"
+      },
+      "username": {
+        "type": "string",
+        "default": "Dev2000"
+      },
+      "password": {
+        "type": "string",
+        "default": "stringPassword123@"
+      }
+    }
+  },
+  "Login": {
+    "type": "object",
+    "required": ["username", "password"],
+    "properties": {
+      "username": {
+        "type": "string",
+        "default": "Dev2000"
+      },
+      "password": {
+        "type": "string",
+        "default": "stringPassword123@"
+      }
+    }
+  },
+  "UserResponse": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "_id": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    }
+  }
+}

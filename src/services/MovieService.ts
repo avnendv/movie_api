@@ -1,5 +1,5 @@
-import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { FindManyOptions, In } from 'typeorm';
+import { SuccessResponseIF, MessagePayLoad } from '@/models';
 import { slugify } from '@/utils';
 import { RESULT_OK } from '@/config/constants';
 import { dataSource } from '@/config/DataSource';
@@ -63,8 +63,8 @@ export const MovieService = {
         name: data.name,
         slug: slugify(data.name),
         country: data.country,
-        actors: actors,
-        categories: categories,
+        actors,
+        categories,
       });
       return {
         result: RESULT_OK,
@@ -92,7 +92,7 @@ export const MovieService = {
         throw 'error';
       }
       const movie = await movieRepository.findOne({
-        where: { id: id },
+        where: { id },
         relations: ['actors', 'categories'],
       });
       if (!movie) {

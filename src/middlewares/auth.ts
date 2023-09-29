@@ -2,6 +2,7 @@ import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { errorResponse } from '@/utils';
 import { JwtPayloadIF, MessagePayLoad, RequestIF } from '@/models';
+import { TOKEN_SECRET } from '@/config/env';
 
 export const verifyToken = (req: RequestIF, _res: Response, next: NextFunction) => {
   const token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -10,7 +11,7 @@ export const verifyToken = (req: RequestIF, _res: Response, next: NextFunction) 
     if (!token) {
       throw { msg: 'A token is required for authentication!' };
     }
-    const decoded = jwt.verify(token, process.env.TOKEN_SECRET as string) as JwtPayloadIF;
+    const decoded = jwt.verify(token, TOKEN_SECRET) as JwtPayloadIF;
     req.userId = decoded.id;
   } catch (error) {
     const err = error as MessagePayLoad;

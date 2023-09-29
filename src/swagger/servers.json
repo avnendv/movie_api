@@ -1,0 +1,8 @@
+{
+  "servers": [
+    {
+      "url": "/api",
+      "description": "Common server"
+    }
+  ]
+}

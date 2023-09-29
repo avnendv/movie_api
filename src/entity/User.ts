@@ -8,8 +8,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { MovieToUsers } from './';
 import { UserGender, UserStatus } from '../config/constants';
+import { MovieToUsers } from './';
 
 @Entity()
 export class User extends BaseEntity {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "movie app server with nodejs/express + typescript",
   "main": "index.js",
-  "author": "a2xvodoi",
+  "author": "avnendv",
   "license": "MIT",
   "_moduleAliases": {
     "@/config": "./dist/config",
@@ -14,11 +14,15 @@
     "@/services": "./dist/services",
     "@/migration": "./dist/migration",
     "@/utils": "./dist/utils",
-    "@/logs": "./dist/logs"
+    "@/logs": "./dist/logs",
+    "@/routes": "./dist/routes",
+    "@/plugins": "./dist/plugins",
+    "@/swagger": "./dist/swagger"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --fix --max-warnings=0",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "prepare": "husky install",
     "tsc-init": "tsconfig.json",
     "build": "rm -rf dist build && tsc && uglifyjs-folder ./dist -x .js -eo ./dist && node ./dist/index.js",
@@ -31,6 +35,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/compression": "^1.7.3",
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
@@ -40,10 +45,17 @@
     "@types/node": "^18.14.0",
     "@types/nodemailer": "^6.4.7",
     "@types/shortid": "^0.0.29",
+    "@types/swagger-ui-express": "^4.1.4",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
+    "compression": "^1.7.4",
     "eslint": "^8.36.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^2.0.20",
+    "prettier": "^3.0.3",
+    "swagger-ui-express": "^5.0.0",
     "typescript": "^4.9.5",
     "uglify-js": "^3.17.4",
     "uglifyjs-folder": "^3.2.0"
