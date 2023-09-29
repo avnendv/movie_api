@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import express, { Express } from 'express';
 import 'module-alias/register';
 import { setupApp } from './plugins';
