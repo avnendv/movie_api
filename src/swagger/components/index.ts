@@ -1,12 +1,9 @@
 import user from './user.json';
+import actor from './actor.json';
 
 const schemas = {
   ...user,
-  id: {
-    type: 'string',
-    description: 'An id of a todo',
-    example: 'tyVgf',
-  },
+  ...actor,
 };
 
 export default {

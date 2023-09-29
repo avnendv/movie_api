@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:4000/api/actor
+@baseUrl = http://localhost:3009/api/actor
 
 ### list
 GET  {{baseUrl}}/

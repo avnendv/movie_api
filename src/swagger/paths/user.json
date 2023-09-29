@@ -1,8 +1,9 @@
 {
-  "/auth/register": {
+  "/register": {
     "post": {
       "tags": ["User"],
       "summary": "Register a user",
+      "description": "Register a user",
       "requestBody": {
         "required": true,
         "content": {
@@ -33,7 +34,7 @@
       }
     }
   },
-  "/auth/login": {
+  "/login": {
     "post": {
       "security": [
         {
@@ -41,7 +42,8 @@
         }
       ],
       "tags": ["User"],
-      "summary": "Register a Course",
+      "summary": "Login User",
+      "description": "Login User",
       "requestBody": {
         "required": true,
         "content": {
@@ -72,57 +74,11 @@
       }
     }
   },
-  "/auth/me": {
+  "/profile": {
     "get": {
       "tags": ["User"],
       "summary": "Get a user with check info",
       "description": "Response information user",
-      "responses": {
-        "200": {
-          "description": "User existing"
-        }
-      }
-    }
-  },
-  "/auth/profile/{username}/course-registered": {
-    "get": {
-      "tags": ["User"],
-      "summary": "Get list course of user registered",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "username",
-          "schema": {
-            "type": "string"
-          },
-          "required": true
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Success"
-        },
-        "400": {
-          "description": "Bad request"
-        }
-      }
-    }
-  },
-  "/auth/profile/{username}": {
-    "get": {
-      "tags": ["User"],
-      "summary": "Get a user with username",
-      "description": "Response information user",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "username",
-          "schema": {
-            "type": "string"
-          },
-          "required": true
-        }
-      ],
       "responses": {
         "200": {
           "description": "User existing"

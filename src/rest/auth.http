@@ -5,8 +5,8 @@ POST  {{baseUrl}}/register
 content-type: application/json
 
 {
-    "user_name": "1eve.in1",
-    "email": "1ev.holt@reqres.in",
+    "user_name": "1eve.in2",
+    "email": "1ev.holt@reqres1.in",
     "password": "cityslicka",
     "full_name": "abcabc"
 }
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc3NDgyMzAxLCJleHAiOjE2Nzc0ODk1MDF9.KNsWaw26ajleiHmeJBsPGDmcJ_HmyimDon0JephmvNY
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1OTcyODU5LCJleHAiOjE2OTY1Nzc2NTl9.JLz7lUiTeGPXHAYLq34IrnE0EmOu4O5lxX7qORwOHbA
 ### profile
 POST  {{baseUrl}}/profile
 content-type: application/json

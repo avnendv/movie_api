@@ -1,23 +1,11 @@
 {
-  "Register": {
+  "FormActor": {
     "type": "object",
-    "required": ["email", "user_name", "password", "full_name"],
+    "required": ["name"],
     "properties": {
-      "email": {
-        "type": "string",
-        "default": "avnendv@gmail.com"
-      },
-      "user_name": {
+      "name": {
         "type": "string",
         "default": "AVNENDV"
-      },
-      "full_name": {
-        "type": "string",
-        "default": "AVNENDV"
-      },
-      "password": {
-        "type": "string",
-        "default": "avnendv123"
       },
       "birthday": {
         "type": "string",
@@ -28,9 +16,9 @@
         "default": "male",
         "enum": ["female", "male"]
       },
-      "phone": {
+      "descriptions": {
         "type": "string",
-        "default": "0124334124"
+        "default": "descriptions"
       },
       "address": {
         "type": "string",
@@ -38,21 +26,7 @@
       }
     }
   },
-  "Login": {
-    "type": "object",
-    "required": ["email", "password"],
-    "properties": {
-      "email": {
-        "type": "string",
-        "default": "avnendv@gmail.com"
-      },
-      "password": {
-        "type": "string",
-        "default": "avnendv123"
-      }
-    }
-  },
-  "UserResponse": {
+  "ActorResponse": {
     "type": "object",
     "properties": {
       "result": {
@@ -62,16 +36,13 @@
       "data": {
         "type": "object",
         "properties": {
-          "user_name": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
             "type": "string"
           },
-          "email": {
-            "type": "string"
-          },
-          "full_name": {
-            "type": "string"
-          },
-          "phone": {
+          "slug": {
             "type": "string"
           },
           "gender": {
@@ -86,13 +57,19 @@
           "address": {
             "type": "string"
           },
-          "expired_status": {
+          "descriptions": {
             "type": "string"
           },
-          "status": {
+          "viewer": {
             "type": "string"
           },
-          "token": {
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "deleted_at": {
             "type": "string"
           }
         }
