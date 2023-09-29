@@ -2,7 +2,7 @@
   "servers": [
     {
       "url": "/api",
-      "description": "Common server"
+      "description": "Common API server"
     }
   ]
 }

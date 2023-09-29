@@ -1,12 +1,10 @@
 import user from './user.json';
+import actor from './actor.json';
 
-const schemas = Object.assign(user, {
-  id: {
-    type: 'string',
-    description: 'An id of a todo',
-    example: 'tyVgf',
-  },
-});
+const schemas = {
+  ...user,
+  ...actor,
+};
 
 export default {
   components: {
